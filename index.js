@@ -1,81 +1,37 @@
-let employees = [];
-function addEmployee() {
-let name = document.getElementById("name").value;
-let id = document.getElementById("id").value;
-let salary = parseFloat(document.getElementById("salary").value);
-let department = document.getElementById("department").value;
-if (name === "" || id === "" || isNaN(salary) || department === "") {
-alert("Please fill all fields properly");
-return;
+let heading = document.getElementById("mainHeading");
+let paragraph = document.getElementById("paragraph");
+let input = document.getElementById("userInput");
+let fontSize = 16;
+// Change heading text (onclick using addEventListener)
+document.getElementById("changeTextBtn").addEventListener("click", function () {
+if (input.value !== "") {
+heading.innerHTML = input.value;
 }
-let employee = {
-name: name,
-id: id,
-salary: salary,
-department: department,
+});
+// Change background color
+document.getElementById("bgColorBtn").onclick = function () {
+document.body.style.backgroundColor =
+"#" + Math.floor(Math.random() * 16777215).toString(16);
 };
-employees.push(employee);
-alert("Employee Added Successfully!");
-document.getElementById("name").value = "";
-document.getElementById("id").value = "";
-document.getElementById("salary").value = "";
-document.getElementById("department").value = "";
-}
-function displayEmployees() {
-let output = "<h3>All Employees</h3>";
-if (employees.length === 0) {
-output += "No employees added yet.";
-}
-employees.forEach((emp) => {
-output += `
-Name: ${emp.name} |
-ID: ${emp.id} |
-Salary: ₹${emp.salary} |
-Department: ${emp.department} <br>
-`;
+// Increase font size
+document.getElementById("fontSizeBtn").addEventListener("click", function () {
+fontSize += 2;
+paragraph.style.fontSize = fontSize + "px";
 });
-document.querySelector(".result").innerHTML = output;
+// Show/Hide paragraph
+document.getElementById("toggleBtn").addEventListener("click", function () {
+if (paragraph.style.display === "none") {
+paragraph.style.display = "block";
+} else {
+paragraph.style.display = "none";
 }
-function filterSalary() {
-let filtered = employees.filter((emp) => emp.salary > 50000);let output = "<h3>Employees with Salary > ₹50,000</h3>";
-if (filtered.length === 0) {
-output += "No employees found.";
-}
-filtered.forEach((emp) => {
-output += `
-Name: ${emp.name} |
-Salary: ₹${emp.salary} <br>
-`;
 });
-document.querySelector(".result").innerHTML = output;
-}
-function totalSalary() {
-let total = employees.reduce((sum, emp) => sum + emp.salary, 0);
-document.querySelector(".result").innerHTML =
-"<h3>Total Salary Payout: ₹" + total + "</h3>";
-}
-function averageSalary() {
-if (employees.length === 0) {
-document.querySelector(".result").innerHTML =
-"<h3>No employee records available</h3>";
-return;
-}
-let total = employees.reduce((sum, emp) => sum + emp.salary, 0);
-let avg = total / employees.length;
-document.querySelector(".result").innerHTML =
-"<h3>Average Salary: ₹" + avg.toFixed(2) + "</h3>";
-}
-function sortByDepartment() {
-let sorted = [...employees].sort((a, b) =>
-a.department.localeCompare(b.department),
-);
-let output = "<h3>Employees Sorted by Department</h3>";
-sorted.forEach((emp) => {
-output += `
-Name: ${emp.name} |
-Department: ${emp.department} |
-Salary: ₹${emp.salary} <br>
-`;
+// Reset page
+document.getElementById("resetBtn").addEventListener("click", function () {
+heading.innerHTML = "Welcome to JavaScript Lab";
+paragraph.style.display = "block";
+paragraph.style.fontSize = "16px";
+document.body.style.backgroundColor = "#f4f4f4";
+input.value = "";
+fontSize = 16;
 });
-document.querySelector(".result").innerHTML = output;
-}
