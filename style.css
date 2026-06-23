@@ -1,56 +1,42 @@
-/* Reset some default styles */
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
-/* Body styling */
 body {
-font-family: Arial, sans-serif;
-background-color: #f4f4f4;
-text-align: center;
-padding: 50px;
+    font-family: Arial, sans-serif;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
-/* Container styling */
+
 .container {
-background-color: #ffffff;
-padding: 30px;
-border-radius: 10px;
-width: 400px;
-margin: auto;
-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
 }
-/* Heading */
-#mainHeading {
-margin-bottom: 20px;
-color: #333;
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
 }
-/* Input box */
-#userInput {width: 80%;
-padding: 10px;
-border: 1px solid #ccc;
-border-radius: 5px;
-font-size: 16px;
-}
-/* Buttons */
+
 button {
-margin: 8px 5px;
-padding: 10px 15px;
-border: none;
-border-radius: 5px;
-background-color: #007BFF;
-color: white;
-font-size: 14px;
-cursor: pointer;
-transition: 0.3s;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
-/* Button hover effect */
+
 button:hover {
-background-color: #0056b3;
+    background-color: darkgreen;
 }
-/* Paragraph */
-#paragraph {
-margin-top: 20px;
-color: #555;
-font-size: 16px;
+
+#error {
+    color: red;
+}
+
+#result {
+    color: blue;
+    font-weight: bold;
 }
